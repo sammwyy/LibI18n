@@ -11,12 +11,11 @@
     <!-- Plugin Information -->
     <name>LibI18n</name>
     <description>Modern multi-lang auto translation API for Minecraft.</description>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <url>https://github.com/sammwyy/LibConfig</url>
 
     <properties>
         <author>Sammwy</author>
-        <mainClass>com.sammwy.libi18n.plugin.Li18nBukkitPlugin</mainClass>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -52,16 +51,6 @@
         <sourceDirectory>src/main/java</sourceDirectory>
         <!-- Clean old builds and install dependencies before compile -->
         <defaultGoal>clean install</defaultGoal>
-        <!-- Package files inside resource directory in to the jar -->
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
-            </resource>
-        </resources>
 
         <!-- Compilation settings starts here -->
         <plugins>
