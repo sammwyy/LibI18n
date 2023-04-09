@@ -18,9 +18,12 @@ public class PlayerUtils {
     }
 
     public static String getPlayerLocale(Player player) {
+        System.out.println("getPlayerLocale");
         if (ServerUtils.hasPlayerGetLocaleAPI()) {
+            System.out.println("hasPlayerGetLocaleAPI returns true");
             return player.getLocale();
         } else {
+            System.out.println("hasPlayerGetLocaleAPI returns false");
             return getPlayerLocaleInLegacyWay(player);
         }
     }

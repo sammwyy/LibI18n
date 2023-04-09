@@ -11,7 +11,7 @@
     <!-- Plugin Information -->
     <name>LibI18n</name>
     <description>Modern multi-lang auto translation API for Minecraft.</description>
-    <version>0.0.3</version>
+    <version>0.0.4</version>
     <url>https://github.com/sammwyy/LibConfig</url>
 
     <properties>
