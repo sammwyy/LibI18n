@@ -11,7 +11,6 @@ import java.util.Map;
 import org.bukkit.configuration.file.YamlConstructor;
 import org.bukkit.configuration.file.YamlRepresenter;
 import org.yaml.snakeyaml.DumperOptions;
-import org.yaml.snakeyaml.LoaderOptions;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.error.YAMLException;
 import org.yaml.snakeyaml.reader.UnicodeReader;
@@ -23,7 +22,6 @@ public class LanguageYamlFile extends LanguageYamlSection {
     private String raw;
 
     private final DumperOptions yamlDumperOptions;
-    private final LoaderOptions yamlLoaderOptions;
     private final YamlConstructor constructor;
     private final YamlRepresenter representer;
     private final Yaml yaml;
@@ -37,11 +35,8 @@ public class LanguageYamlFile extends LanguageYamlSection {
 
         yamlDumperOptions = new DumperOptions();
         yamlDumperOptions.setDefaultFlowStyle(DumperOptions.FlowStyle.BLOCK);
-        yamlLoaderOptions = new LoaderOptions();
-        yamlLoaderOptions.setMaxAliasesForCollections(Integer.MAX_VALUE);
-        yamlLoaderOptions.setCodePointLimit(Integer.MAX_VALUE);
 
-        yaml = new Yaml(constructor, representer, yamlDumperOptions, yamlLoaderOptions);
+        yaml = new Yaml(constructor, representer, yamlDumperOptions);
     }
 
     public LanguageYamlFile(File file) {
