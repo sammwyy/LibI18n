@@ -7,8 +7,8 @@ enum VALUE {
 }
 
 public class ServerUtils {
-    private static VALUE HAS_PLAYER_GET_LOCALE_METHOD = VALUE.UNKNOWN;
-    private static Platform PLATFORM = Platform.UNKNOWN;
+    public static VALUE HAS_PLAYER_GET_LOCALE_METHOD = VALUE.UNKNOWN;
+    public static Platform PLATFORM = Platform.UNKNOWN;
 
     public static Platform getPlatform() {
         if (PLATFORM == Platform.UNKNOWN) {
@@ -20,12 +20,13 @@ public class ServerUtils {
         return PLATFORM;
     }
 
+    @SuppressWarnings("deprecation")
     public static boolean hasPlayerGetLocaleAPI() {
         if (HAS_PLAYER_GET_LOCALE_METHOD == VALUE.UNKNOWN) {
             try {
                 Class<?> playerClass = Class.forName("org.bukkit.entity.Player");
-                Method method = playerClass.getDeclaredMethod("getLocale");
-                HAS_PLAYER_GET_LOCALE_METHOD = method == null ? VALUE.NO : VALUE.YES;
+                Method method = playerClass.getMethod("getLocale");
+                HAS_PLAYER_GET_LOCALE_METHOD = method == null || !method.isAccessible() ? VALUE.NO : VALUE.YES;
             } catch (Exception ignored) {
                 HAS_PLAYER_GET_LOCALE_METHOD = VALUE.NO;
             }
