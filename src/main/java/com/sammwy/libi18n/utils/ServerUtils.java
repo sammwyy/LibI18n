@@ -7,7 +7,7 @@ enum VALUE {
 }
 
 public class ServerUtils {
-    public static VALUE HAS_PLAYER_GET_LOCALE_METHOD = VALUE.NO;
+    public static VALUE HAS_PLAYER_GET_LOCALE_METHOD = VALUE.UNKNOWN;
     public static Platform PLATFORM = Platform.UNKNOWN;
 
     public static Platform getPlatform() {
